@@ -24,6 +24,6 @@ OtherHeader.args = {
 
 export const OrangeHeader = Template.bind({});
 OrangeHeader.args = {
-  text: "Pink Header",
+  text: "Orange Header",
   color: "bg-orange-500",
 };

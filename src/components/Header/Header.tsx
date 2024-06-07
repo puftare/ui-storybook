@@ -1,15 +1,13 @@
+type HeaderItems = {
+  name: string;
+  href: string;
+};
 export interface HeaderProps {
   text?: string;
   color: string;
+  items?: HeaderItems[];
 }
-const navigation = [
-  { name: "Product", href: "/" },
-  { name: "Features", href: "/" },
-  { name: "Marketplace", href: "/" },
-  { name: "Company", href: "/" },
-];
-
-export const Header: React.FC<HeaderProps> = ({ text, color }) => {
+export const Header: React.FC<HeaderProps> = ({ text, color, items }) => {
   return (
     <header className={`px-4 py-2 rounded ${color}`}>
       <nav
@@ -26,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ text, color }) => {
           </a>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
+          {items?.map((item) => (
             <a
               key={item.name}
               href={item.href}

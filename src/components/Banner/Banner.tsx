@@ -9,7 +9,7 @@ export interface BannerProps {
 export const Banner: React.FC<BannerProps> = ({ text, color }) => {
   return (
     <div
-      className={`flex items-center justify-center gap-x-6 bg-${color}-500 px-6 py-2.5 sm:px-3.5`}
+      className={`flex items-center justify-center gap-x-6 ${color} px-6 py-2.5 sm:px-3.5`}
     >
       <p className="text-sm leading-6 text-white">
         <a href="/">

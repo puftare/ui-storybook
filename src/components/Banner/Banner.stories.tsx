@@ -13,11 +13,11 @@ const Template: StoryFn<BannerProps> = (args: BannerProps) => (
 export const FirstBanner = Template.bind({});
 FirstBanner.args = {
   text: "Banner 1",
-  color: "blue",
+  color: "bg-blue-500",
 };
 
 export const SecondBanner = Template.bind({});
 SecondBanner.args = {
   text: "Banner 2",
-  color: "green",
+  color: "bg-yellow-500",
 };

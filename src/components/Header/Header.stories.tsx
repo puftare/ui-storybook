@@ -13,17 +13,17 @@ const Template: StoryFn<HeaderProps> = (args: HeaderProps) => (
 export const MainHeader = Template.bind({});
 MainHeader.args = {
   text: "Main Header",
-  color: "blue",
+  color: "bg-blue-500",
 };
 
 export const OtherHeader = Template.bind({});
 OtherHeader.args = {
   text: "Other Header",
-  color: "red",
+  color: "bg-red-500",
 };
 
 export const OrangeHeader = Template.bind({});
 OrangeHeader.args = {
   text: "Pink Header",
-  color: "orange",
+  color: "bg-orange-500",
 };

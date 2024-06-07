@@ -1,6 +1,6 @@
 export interface HeaderProps {
   text?: string;
-  color: "blue" | "red" | "orange" | "lime";
+  color: string;
 }
 const navigation = [
   { name: "Product", href: "/" },
@@ -11,7 +11,7 @@ const navigation = [
 
 export const Header: React.FC<HeaderProps> = ({ text, color }) => {
   return (
-    <header className={`px-4 py-2 rounded bg-${color}-500`}>
+    <header className={`px-4 py-2 rounded ${color}`}>
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"

@@ -4,6 +4,7 @@ import { Button, ButtonProps } from "./Button";
 export default {
   title: "Components/Button",
   component: Button,
+  tags: ["autodocs"],
 } as Meta;
 
 const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (

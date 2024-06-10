@@ -4,6 +4,7 @@ import { LogoCloud, LogoCloudProps } from "./LogoCloud";
 export default {
   title: "Components/LogoCloud",
   component: LogoCloud,
+  tags: ["autodocs"],
 } as Meta;
 
 const Template: StoryFn<LogoCloudProps> = (args: LogoCloudProps) => (
@@ -20,4 +21,4 @@ export const LogoCloudOther = Template.bind({});
 LogoCloudOther.args = {
   text: "Other Logo Cloud",
   color: "bg-pink-500",
-}
+};

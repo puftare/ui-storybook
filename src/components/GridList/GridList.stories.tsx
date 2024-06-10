@@ -4,6 +4,7 @@ import { GridList, GridListProps } from "./GridList";
 export default {
   title: "Components/GridList",
   component: GridList,
+  tags: ["autodocs"],
 } as Meta;
 
 const Template: StoryFn<GridListProps> = (args: GridListProps) => (

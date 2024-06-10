@@ -4,6 +4,7 @@ import { Banner, BannerProps } from "./Banner";
 export default {
   title: "Components/Banner",
   component: Banner,
+  tags: ["autodocs"],
 } as Meta;
 
 const Template: StoryFn<BannerProps> = (args: BannerProps) => (

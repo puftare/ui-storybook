@@ -14,11 +14,13 @@ const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (
 export const Primary = Template.bind({});
 Primary.args = {
   text: "Primary Button",
-  type: "primary",
+  type: "button",
+  variant: "primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   text: "Secondary Button",
-  type: "secondary",
+  type: "button",
+  variant: "secondary",
 };

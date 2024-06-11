@@ -2,8 +2,8 @@ import React, { ButtonHTMLAttributes } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  type?: "button" | "submit";
-  variant?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary";
   disabled?: boolean;
   children?: React.ReactNode;
   onClick?: () => void;

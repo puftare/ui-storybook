@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { Button, ButtonProps } from "./Button";
+import { Button, ButtonProps, Variant } from "./Button";
 
 export default {
   title: "Components/Button",
@@ -14,13 +14,11 @@ const Template: StoryFn<ButtonProps> = (args: ButtonProps) => (
 export const Primary = Template.bind({});
 Primary.args = {
   text: "Primary Button",
-  type: "button",
-  variant: "primary",
+  variant: Variant.Primary,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   text: "Secondary Button",
-  type: "button",
-  variant: "secondary",
+  variant: Variant.Secondary,
 };

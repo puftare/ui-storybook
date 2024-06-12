@@ -1,9 +1,14 @@
 import React, { ButtonHTMLAttributes } from "react";
 
+export enum Variant {
+  Primary = "primary",
+  Secondary = "secondary",
+  Warning = "warning",
+}
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary";
+  variant?: Variant;
   disabled?: boolean;
   children?: React.ReactNode;
   onClick?: () => void;
@@ -11,22 +16,20 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: React.FC<ButtonProps> = ({
   text,
-  type = "button",
-  variant,
+  variant = Variant.Primary,
   disabled,
   children,
   onClick,
   ...props
 }) => {
   const buttonClasses =
-    variant === "primary"
+    variant === Variant.Primary
       ? "bg-blue-500 hover:bg-blue-600 text-white"
       : "bg-gray-200 hover:bg-gray-300 text-black";
 
   return (
     <button
       className={`px-4 py-2 rounded ${buttonClasses}`}
-      type={type}
       disabled={disabled}
       onClick={onClick}
       {...props}

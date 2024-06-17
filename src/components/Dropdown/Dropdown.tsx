@@ -11,6 +11,7 @@ import { classNames } from "../../helpers/utilityFunctions";
 
 type DropdownMenuItem = {
   text: string;
+  link: string;
 };
 
 export interface DropdownProps {
@@ -45,7 +46,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ items }: DropdownProps) => {
                 <MenuItem key={index}>
                   {({ focus }) => (
                     <a
-                      href="/"
+                      href={item.link}
                       className={classNames(
                         focus ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block px-4 py-2 text-sm"

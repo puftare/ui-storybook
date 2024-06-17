@@ -10,13 +10,15 @@ export default {
   },
 } as Meta;
 
-const Template: StoryFn<DropdownProps> = (args: DropdownProps) => <Dropdown {...args}/>;
+const Template: StoryFn<DropdownProps> = (args: DropdownProps) => (
+  <Dropdown {...args} />
+);
 
 export const MainDropdown = Template.bind({});
 MainDropdown.args = {
   items: [
-    { text: "Account Settings" },
-    { text: "Support" },
-    { text: "Licence" },
+    { text: "Account Settings", link: "/" },
+    { text: "Support", link: "/" },
+    { text: "Licence", link: "/" },
   ],
 };

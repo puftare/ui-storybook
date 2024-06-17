@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  useContext,
-  createContext,
-  useState,
-  Fragment,
-} from "react";
+import React, { FC, createContext, useState, Fragment } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -13,13 +7,12 @@ import {
 } from "@headlessui/react";
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid";
-import { classNames } from "../../helpers/utilityFunctions";
 
-interface SidebarContextProps {
+export interface SidebarContextProps {
   expanded?: boolean;
 }
 
-const SidebarContext = createContext<SidebarContextProps | undefined>({
+export const SidebarContext = createContext<SidebarContextProps | undefined>({
   expanded: true,
 });
 
@@ -27,7 +20,7 @@ type NavigationMenuItem = {
   text: string;
   href: string;
   icon?: string | Element;
-  current?: boolean;
+  active?: boolean;
 };
 
 export interface SidebarProps {
@@ -105,7 +98,7 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
         </Dialog>
       </Transition>
 
-      <div className="sticky top-0 z-50 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+      <div className="sticky flex items-center gap-x-6 border-b shadow bg-white px-4 py-4">
         <button
           type="button"
           className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
@@ -113,9 +106,8 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
         >
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
-        <div className="flex-1 text-sm font-semibold leading-6 text-white">
-          Dashboard
-        </div>
+        <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6" />
+
         <a href="/">
           <img
             className="h-8 w-8 rounded-full bg-gray-800"
@@ -125,11 +117,9 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
         </a>
       </div>
 
-      <aside className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col -ml-4">
+      <aside className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col -ml-4 relative">
         <nav className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-2 pb-4">
-          <div
-            className={`h-16 flex items-center px-2 ${expanded ? "justify-between" : "justify-center"}`}
-          >
+          <div className={`h-16 flex items-center px-2 justify-center`}>
             <img
               src="https://img.logoipsum.com/243.svg"
               className={`overflow-hidden transition-all duration-500 ${
@@ -139,7 +129,7 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
             />
             <button
               onClick={() => setExpanded((prev) => !prev)}
-              className="p-2 rounded-lg bg-gray-50 hover:bg-gray-100"
+              className="p-2 rounded-lg bg-gray-200 hover:bg-gray-100 absolute -right-4 bottom-[50%] z-50"
             >
               {expanded ? (
                 <ChevronFirst size={20} />
@@ -175,66 +165,6 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
         </nav>
       </aside>
     </Fragment>
-  );
-};
-
-interface SidebarItemProps {
-  icon: React.ReactNode;
-  text: string;
-  active?: boolean;
-  alert?: boolean;
-}
-
-export const SidebarItem: FC<SidebarItemProps> = ({
-  icon,
-  text,
-  active,
-  alert,
-}) => {
-  const { expanded } = useContext(SidebarContext) || {};
-
-  return (
-    <li
-      className={`
-        relative flex items-center py-2 px-3 my-1
-        font-medium rounded-md cursor-pointer
-        transition-colors group
-        ${
-          active
-            ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600"
-        }
-    `}
-    >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all duration-500 ${
-          expanded ? "w-52 ml-3" : "w-0"
-        }`}
-      >
-        {text}
-      </span>
-      {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
-            expanded ? "" : "top-2"
-          }`}
-        />
-      )}
-
-      {!expanded && (
-        <div
-          className={`
-          absolute left-full rounded-md px-2 py-1 ml-6
-          bg-indigo-100 text-indigo-800 text-sm
-          invisible opacity-20 -translate-x-3 transition-all duration-500
-          group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      `}
-        >
-          {text}
-        </div>
-      )}
-    </li>
   );
 };
 

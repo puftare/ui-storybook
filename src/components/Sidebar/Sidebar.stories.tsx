@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import Sidebar, { SidebarItem, SidebarProps } from "./Sidebar";
+import Sidebar, { SidebarProps } from "./Sidebar";
+import { SidebarItem } from "./SidebarItem";
 import {
   AppWindow,
   SettingsIcon,
@@ -48,7 +49,7 @@ const Template: StoryFn<SidebarProps> = (args: SidebarProps) => (
 export const PrimarySidebar = Template.bind({});
 PrimarySidebar.args = {
   items: [
-    { text: "Home", href: "/", current: true, icon: "Home" },
+    { text: "Home", href: "/", active: true, icon: "Home" },
     { text: "Dashboard", href: "/", icon: "Dashboard" },
     { text: "About", href: "/", icon: "About" },
     { text: "Contact", href: "/", icon: "Contact" },

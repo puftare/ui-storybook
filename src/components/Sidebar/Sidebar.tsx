@@ -25,13 +25,17 @@ const SidebarContext = createContext<SidebarContextProps | undefined>({
 type NavigationMenuItem = {
   text: string;
   href: string;
-  icon?: string;
+  icon?: string | Element;
   current?: boolean;
 };
 
 export interface SidebarProps {
   children: React.ReactNode;
   items?: NavigationMenuItem[];
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
 }
 
 const Sidebar: FC<SidebarProps> = ({ children, items }) => {
@@ -103,16 +107,6 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
           </div>
         </Dialog>
       </Transition>
-
-      {/* <div className="sticky top-0 z-50 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-        <button
-          type="button"
-          className="-m-2.5 p-2.5 text-gray-500 lg:hidden"
-          onClick={() => setSidebarOpen(true)}
-        >
-          <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-        </button>
-      </div> */}
 
       <div className="sticky top-0 z-50 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
         <button

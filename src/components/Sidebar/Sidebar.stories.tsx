@@ -12,6 +12,18 @@ import {
   Airplay,
 } from "lucide-react";
 
+const sidebarItems = [
+  { icon: <AppWindow size={20} />, text: "Home", active: true },
+  { icon: <Award size={20} />, text: "Dashboard", active: false },
+  { icon: <UserCheck size={20} />, text: "About", active: false },
+  { icon: <Database size={20} />, text: "Contact", active: false },
+  { icon: <SettingsIcon size={20} />, text: "Settings", active: false },
+  { icon: <Home size={20} />, text: "File", active: false },
+  { icon: <Search size={20} />, text: "Search", active: false },
+  { icon: <FilterIcon size={20} />, text: "Filter", active: false },
+  { icon: <Airplay size={20} />, text: "Order", active: false },
+];
+
 export default {
   title: "Components/Sidebar",
   component: Sidebar,
@@ -20,15 +32,16 @@ export default {
 
 const Template: StoryFn<SidebarProps> = (args: SidebarProps) => (
   <Sidebar>
-    <SidebarItem icon={<AppWindow size={20} />} text="Home" active />
-    <SidebarItem icon={<Award size={20} />} text="Dashboard" />
-    <SidebarItem icon={<UserCheck size={20} />} text="About" />
-    <SidebarItem icon={<Database size={20} />} text="Contact" />
-    <SidebarItem icon={<SettingsIcon size={20} />} text="Settings" />
-    <SidebarItem icon={<Home size={20} />} text="File" />
-    <SidebarItem icon={<Search size={20} />} text="Search" />
-    <SidebarItem icon={<FilterIcon size={20} />} text="Filter" />
-    <SidebarItem icon={<Airplay size={20} />} text="Order" />
+    {sidebarItems.map((item, index) => {
+      return (
+        <SidebarItem
+          icon={item.icon}
+          text={item.text}
+          active={item.active}
+          key={index}
+        />
+      );
+    })}
   </Sidebar>
 );
 

@@ -13,6 +13,7 @@ import {
 } from "@headlessui/react";
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid";
+import { classNames } from "../../helpers/utilityFunctions";
 
 interface SidebarContextProps {
   expanded?: boolean;
@@ -32,10 +33,6 @@ type NavigationMenuItem = {
 export interface SidebarProps {
   children: React.ReactNode;
   items?: NavigationMenuItem[];
-}
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
 }
 
 const Sidebar: FC<SidebarProps> = ({ children, items }) => {

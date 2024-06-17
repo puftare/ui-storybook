@@ -10,4 +10,4 @@ In the project directory, you can run:
 
 
 # Latest build!
-`https://666188bde332c6280f64cf9b-wefyseosfp.chromatic.com/?path=/story/components-sidebar--primary-sidebar`
+`https://666188bde332c6280f64cf9b-dtoxgotbqq.chromatic.com/?path=/story/components-dropdown--main-dropdown`

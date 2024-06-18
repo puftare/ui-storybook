@@ -7,6 +7,7 @@ import {
 } from "@headlessui/react";
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid";
+import { SidebarItem } from "./SidebarItem";
 
 export interface SidebarContextProps {
   expanded?: boolean;
@@ -18,17 +19,15 @@ export const SidebarContext = createContext<SidebarContextProps | undefined>({
 
 type NavigationMenuItem = {
   text: string;
-  href: string;
-  icon?: string | Element;
+  icon?: string | JSX.Element;
   active?: boolean;
 };
 
 export interface SidebarProps {
-  children: React.ReactNode;
   items?: NavigationMenuItem[];
 }
 
-const Sidebar: FC<SidebarProps> = ({ children, items }) => {
+const Sidebar: FC<SidebarProps> = ({ items }) => {
   const [expanded, setExpanded] = useState<boolean>(true);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
@@ -89,7 +88,18 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
                     />
                   </div>
                   <nav className="flex flex-1 flex-col">
-                    <ul className="-mx-2 flex-1 space-y-1">{children}</ul>
+                    <ul className="-mx-2 flex-1 space-y-1">
+                      {items?.map((item, index) => {
+                        return (
+                          <SidebarItem
+                            icon={item.icon}
+                            text={item.text}
+                            active={item.active}
+                            key={index}
+                          />
+                        );
+                      })}
+                    </ul>
                   </nav>
                 </div>
               </DialogPanel>
@@ -140,7 +150,18 @@ const Sidebar: FC<SidebarProps> = ({ children, items }) => {
           </div>
 
           <SidebarContext.Provider value={{ expanded }}>
-            <ul className="flex-1 px-2">{children}</ul>
+            <ul className="flex-1 px-2">
+              {items?.map((item, index) => {
+                return (
+                  <SidebarItem
+                    icon={item.icon}
+                    text={item.text}
+                    active={item.active}
+                    key={index}
+                  />
+                );
+              })}
+            </ul>
           </SidebarContext.Provider>
 
           <div className="border-t flex p-2">

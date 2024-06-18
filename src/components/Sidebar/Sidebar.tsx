@@ -27,7 +27,7 @@ export interface SidebarProps {
   items?: NavigationMenuItem[];
 }
 
-const Sidebar: FC<SidebarProps> = ({ items }) => {
+export const Sidebar: FC<SidebarProps> = ({ items }) => {
   const [expanded, setExpanded] = useState<boolean>(true);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
@@ -188,5 +188,3 @@ const Sidebar: FC<SidebarProps> = ({ items }) => {
     </Fragment>
   );
 };
-
-export default Sidebar;

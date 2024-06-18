@@ -80,7 +80,7 @@ export const Sidebar: FC<SidebarProps> = ({ items }) => {
                 </TransitionChild>
 
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2 ring-1 ring-white/10">
-                  <div className="flex h-16 shrink-0 items-center">
+                  <div className="flex h-16 shrink-0 items-center justify-center">
                     <img
                       className="h-8 w-auto"
                       src="https://img.logoipsum.com/243.svg"
@@ -131,9 +131,9 @@ export const Sidebar: FC<SidebarProps> = ({ items }) => {
         <nav className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-2 pb-4">
           <div className={`h-16 flex items-center px-2 justify-center`}>
             <img
-              src="https://img.logoipsum.com/243.svg"
+              src={`${expanded ? "https://img.logoipsum.com/243.svg" : "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"}`}
               className={`overflow-hidden transition-all duration-500 ${
-                expanded ? "w-32" : "w-0"
+                expanded ? "w-32" : "w-10"
               }`}
               alt=""
             />

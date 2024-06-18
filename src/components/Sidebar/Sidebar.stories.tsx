@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import Sidebar, { SidebarProps } from "./Sidebar";
+import { Sidebar, SidebarProps } from "./Sidebar";
 import {
   AppWindow,
   SettingsIcon,

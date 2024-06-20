@@ -1,3 +1,5 @@
+export { CTASection } from "./components/CTASection/CTASection";
+export { SidebarItem } from "./components/Sidebar/SidebarItem";
 export { Sidebar } from "./components/Sidebar/Sidebar";
 export { Dropdown } from "./components/Dropdown/Dropdown";
 export { GridList } from "./components/GridList/GridList";

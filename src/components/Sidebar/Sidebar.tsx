@@ -1,4 +1,4 @@
-import React, { FC, createContext, useState, Fragment } from "react";
+import { FC, createContext, useState, Fragment } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -25,9 +25,10 @@ type NavigationMenuItem = {
 
 export interface SidebarProps {
   items?: NavigationMenuItem[];
+  collapsible?: boolean;
 }
 
-export const Sidebar: FC<SidebarProps> = ({ items }) => {
+export const Sidebar: FC<SidebarProps> = ({ items, collapsible = true }) => {
   const [expanded, setExpanded] = useState<boolean>(true);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
@@ -139,7 +140,7 @@ export const Sidebar: FC<SidebarProps> = ({ items }) => {
             />
             <button
               onClick={() => setExpanded((prev) => !prev)}
-              className="p-2 rounded-lg bg-gray-200 hover:bg-gray-100 absolute -right-4 bottom-[50%] z-50"
+              className={`${collapsible ? "p-2 rounded-lg bg-gray-200 hover:bg-gray-100 absolute -right-4 bottom-[50%] z-50" : "hidden"}`}
             >
               {expanded ? (
                 <ChevronFirst size={20} />

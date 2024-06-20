@@ -1,5 +1,6 @@
 import React, { FC, useContext } from "react";
 import { SidebarContext } from "./Sidebar";
+import { Home } from "lucide-react";
 
 interface SidebarItemProps {
   icon: React.ReactNode;
@@ -29,7 +30,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({
           }
       `}
     >
-      {icon}
+      {icon ?? <Home />}
       <span
         className={`overflow-hidden transition-all duration-500 ${
           expanded ? "w-52 ml-3" : "w-0"

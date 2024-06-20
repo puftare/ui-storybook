@@ -22,6 +22,7 @@ const sidebarItems = [
   { icon: <Search size={20} />, text: "Search", active: false },
   { icon: <FilterIcon size={20} />, text: "Filter", active: false },
   { icon: <Airplay size={20} />, text: "Order", active: false },
+  { text: "Home", active: false },
 ];
 
 export default {
@@ -36,5 +37,17 @@ const Template: StoryFn<SidebarProps> = (args: SidebarProps) => (
 
 export const PrimarySidebar = Template.bind({});
 PrimarySidebar.args = {
+  items: sidebarItems,
+  collapsible: true,
+};
+
+export const NonCollapsibleSidebar = Template.bind({});
+NonCollapsibleSidebar.args = {
+  items: sidebarItems,
+  collapsible: false,
+};
+
+export const DefaultSidebar = Template.bind({});
+DefaultSidebar.args = {
   items: sidebarItems,
 };

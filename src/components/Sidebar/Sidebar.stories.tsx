@@ -1,27 +1,27 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Sidebar, SidebarProps } from "./Sidebar";
 import {
-  AppWindow,
-  SettingsIcon,
   Award,
-  UserCheck,
-  Database,
-  Search,
-  FilterIcon,
-  Home,
-  Airplay,
+  NewspaperIcon,
+  User,
+  WorkflowIcon,
+  ActivityIcon,
+  GraduationCap,
+  Calendar,
+  MessageCircle,
+  ScatterChart,
 } from "lucide-react";
 
 const sidebarItems = [
-  { icon: <AppWindow size={20} />, text: "Home", active: true },
-  { icon: <Award size={20} />, text: "Dashboard", active: false },
-  { icon: <UserCheck size={20} />, text: "About", active: false },
-  { icon: <Database size={20} />, text: "Contact", active: false },
-  { icon: <SettingsIcon size={20} />, text: "Settings", active: false },
-  { icon: <Home size={20} />, text: "File", active: false },
-  { icon: <Search size={20} />, text: "Search", active: false },
-  { icon: <FilterIcon size={20} />, text: "Filter", active: false },
-  { icon: <Airplay size={20} />, text: "Order", active: false },
+  { icon: <NewspaperIcon size={20} />, text: "News", active: true },
+  { icon: <Award size={20} />, text: "Reources", active: false },
+  { icon: <User size={20} />, text: "Members", active: false },
+  { icon: <WorkflowIcon size={20} />, text: "Jobs", active: false },
+  { icon: <ActivityIcon size={20} />, text: "Actions", active: false },
+  { icon: <GraduationCap size={20} />, text: "Grants", active: false },
+  { icon: <Calendar size={20} />, text: "Events", active: false },
+  { icon: <MessageCircle size={20} />, text: "Chat", active: false },
+  { icon: <ScatterChart size={20} />, text: "Statistics", active: false },
   { text: "Home", active: false },
 ];
 
